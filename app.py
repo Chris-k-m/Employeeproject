@@ -217,34 +217,35 @@ def add_details():
 @app.route('/onlineventures/department')
 def department():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute = ('SELECT * FROM department')
-    department = cursor.fetchall()
-    return render_template("department.html", department=department)
+    cursor.execute("select * FROM department")
+    departments = cursor.fetchall()  # data from database
+    return render_template("department.html", departments=departments)
 
 
 @app.route('/onlineventures/country')
 def country():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute = ('SELECT * FROM country')
-    country = cursor.fetchall()
-    return render_template("country.html", country=country)
+    cursor.execute("select * FROM country")
+    countries = cursor.fetchall()  # data from database
+    return render_template("country.html", countries=countries)
 
 
 @app.route('/onlineventures/designation')
 def designation():
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute = ('SELECT * FROM designation')
-    designation = cursor.fetchall()
-    return render_template("designation.html", designation=designation)
+    cursor.execute("select * FROM designation")
+    designations = cursor.fetchall()  # data from database
+    return render_template("designation.html", designations=designations)
 
 
 @app.route('/online_ventures/delete')
 def delete_user():
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    cursor.execute("DELETE FROM employee WHERE employee_id=%s", (session['employee_id']))
-    mysql.connection.commit()
-    msg = 'User deleted successfully!'
-    return render_template('/', msg=msg)
+    if 'loggedin' in session:
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute("DELETE FROM employee WHERE employee_id=%s", (session['employee_id']))
+        mysql.connection.commit()
+        msg = 'User deleted successfully!'
+        return render_template('/', msg=msg)
 
 
 @app.route('/online_ventures/add_department', methods=['GET', 'POST'])
@@ -269,7 +270,7 @@ def add_department():
             mysql.connection.commit()
             msg = 'You have successfully added departments!'
         return render_template('department.html', msg=msg)
-    return render_template("department.html")
+    return render_template("add_department.html")
 
 
 @app.route('/online_ventures/add_designation', methods=['GET', 'POST'])
@@ -294,7 +295,7 @@ def add_designation():
             mysql.connection.commit()
             msg = 'You have successfully added departments!'
         return render_template('designation.html', msg=msg)
-    return render_template("designation.html")
+    return render_template("add_designation.html")
 
 
 @app.route('/online_ventures/add_country', methods=['GET', 'POST'])
@@ -319,7 +320,7 @@ def add_country():
             mysql.connection.commit()
             msg = 'You have successfully added country!'
         return render_template('country.html', msg=msg)
-    return render_template("country.html")
+    return render_template("add_country.html")
 
 
 @app.errorhandler(404)
