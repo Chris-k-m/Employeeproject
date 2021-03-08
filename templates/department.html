@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Department{% endblock %}
+
+{% block content %}
+<h2> Department Page</h2>
+<p>
+  <tr>
+          <td>department_name:</td>
+          <td>{{ department['department_name'] }}</td>
+      </tr>
+      <tr>
+          <td>departmentid:</td>
+          <td>{{ department['departmentid'] }}</td>
+      </tr>
+</p>
+ <button class="button is-block is-info is-large is-fullish">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item ">
+                         <a class="nav-link" href="/add_department"><span class="badge badge-secondary">add_department</span></a>
+                     </li>
+                  </ul>
+        </div>edit_departments</button>
+{% endblock %}

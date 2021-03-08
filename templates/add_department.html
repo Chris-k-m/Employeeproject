@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <div class="content" align="center">
+                <div class="contentbar">
+                  <h1>add_department</h1></br>
+              <form action="{{ url_for('add_department') }}" method="post" autocomplete="off">
+                    <div class="msg">{{ msg }}</div>
+                    <input type="email" name="department_name" placeholder="Enter department_name" class="textbox" id="department_name" required></br></br>
+                    <input type="text" name="departmentid" placeholder="Enter departmentid" class="textbox" id="designation_id" required></br></br>
+                    <input type="submit" class="btn" value="add">
+              </form>
+                </div>
+ </div>
+{% endblock content %}

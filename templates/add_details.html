@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <div class="content" align="center">
+                <div class="contentbar">
+                  <h1>Fill Your Details to Update</h1></br>
+              <form action="{{ url_for('add_details') }}" method="post" autocomplete="off">
+                    <div class="msg">{{ msg }}</div>
+                    <input type="email" name="email" placeholder="Enter Your email" class="textbox" id="email" required></br></br>
+                    <input type="text" name="departmentid" placeholder="Enter Your Departmentid" class="textbox" id="departmentid" required></br></br>
+                    <input type="text" name="countryid" placeholder="Enter Your Countryid" class="textbox" id="countryid" required></br></br>
+                    <input type="text" name="designationid" placeholder="Enter Your Designationid" class="textbox" id="designationid" required></br></br>
+                    <input type="submit" class="btn" value="Update">
+              </form>
+                </div>
+ </div>
+{% endblock content %}
+
+<!--<div class="card-body">-->
+<!--				<form action="{{ url_for('add_details') }}" method="post">-->
+<!--					<div class="input-group form-group">-->
+<!--						<div class="input-group-prepend">-->
+<!--							<span class="input-group-email"><i class="fas fa-user"></i></span>-->
+<!--						</div>-->
+<!--				<input type="text" name="departmentid" placeholder="DepartmentID" id="departmentid" required>-->
+
+<!--					</div>-->
+<!--					<div class="input-group form-group">-->
+<!--						<div class="input-group-prepend">-->
+<!--							<span class="input-group-password"><i class="fas fa-key"></i></span>-->
+<!--						</div>-->
+<!--				<input type="text" name="countryid" placeholder="CountryID" id="countryid" required>-->
+<!--					</div>-->
+<!--                     <div class="input-group form-group">-->
+<!--						<div class="input-group-prepend">-->
+<!--							<span class="input-group-password"><i class="fas fa-key"></i></span>-->
+<!--						</div>-->
+<!--				<input type="text" name="designationid" placeholder="DesignationID" id="designationid" required>-->
+<!--					</div>-->
+<!--					<div class="form-group">-->
+<!--						<input type="submit" value="UPDATE" class="btn float-right update_btn">-->
+<!--					</div>-->
+<!--					<div class="msg">{{ msg }}</div>-->
+<!--                </form>-->
+<!--</div>-->
+
+
+<!--   <div class="field">-->
+<!--                                        <div class="control">-->
+<!--                                            <input class="input is-large" type="text" name="departmentid" placeholder="Add departmentid" id="departmentid" autofocus="">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="field">-->
+<!--                                        <div class="control">-->
+<!--                                            <input class="input is-large" type="text" name="countryid" placeholder="Add countryid" id="countryid" autofocus="">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+
+<!--                                    <div class="field">-->
+<!--                                        <div class="control">-->
+<!--                                            <input class="input is-large" type="text" name="designationid" placeholder="Add designationid" id="designationid" autofocus="">-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                        <div class="msg">{{ msg }}</div>-->
+<!--                                    <button class="button is-block is-info is-large is-fullish">Save</button>-->

@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Designation{% endblock %}
+
+{% block content %}
+<h2> Designation Page</h2>
+<p>
+  <tr>
+          <td>Designation_name:</td>
+          <td>{{ designation['designation_name'] }}</td>
+      </tr>
+      <tr>
+          <td>designationid:</td>
+          <td>{{ designation['designationid'] }}</td>
+      </tr>
+</p>
+<button class="button is-block is-info is-large is-fullish">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item ">
+                         <a class="nav-link" href="/add_designation"><span class="badge badge-secondary">add_designation</span></a>
+                     </li>
+                  </ul>
+        </div>edit_designation</button>
+{% endblock %}

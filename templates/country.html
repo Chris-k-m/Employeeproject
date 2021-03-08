@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block title %}Country{% endblock %}
+
+{% block content %}
+<h2> Country Page</h2>
+<p>
+  <tr>
+          <td>country_name:</td>
+          <td>{{ country['country_name'] }}</td>
+      </tr>
+      <tr>
+          <td>countryid:</td>
+          <td>{{ country['countryid'] }}</td>
+      </tr>
+</p>
+<button class="button is-block is-info is-large is-fullish">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                     <li class="nav-item ">
+                         <a class="nav-link" href="/add_country"><span class="badge badge-secondary">add_country</span></a>
+                     </li>
+                  </ul>
+        </div>edit_country</button>
+{% endblock %}

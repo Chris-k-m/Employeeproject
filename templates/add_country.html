@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block content %}
+ <div class="content" align="center">
+                <div class="contentbar">
+                  <h1>Fill Your Details to Update</h1></br>
+              <form action="{{ url_for('add_country') }}" method="post" autocomplete="off">
+                    <div class="msg">{{ msg }}</div>
+                    <input type="email" name="country_name" placeholder="Enter country_name" class="textbox" id="country_name" required></br></br>
+                    <input type="text" name="countryid" placeholder="Enter countryid" class="textbox" id="countryid" required></br></br>
+                    <input type="submit" class="btn" value="add">
+              </form>
+                </div>
+ </div>
+{% endblock content %}
