@@ -1,25 +1,25 @@
 {% extends 'layout.html' %}
 
-{% block title %}Country{% endblock %}
+{% block title %} {{ Country }} {% endblock title %}
 
-{% block content %}
-<h2> Country Page</h2>
-<p>
-  <tr>
-          <td>country_name:</td>
-          <td>{{ country['country_name'] }}</td>
-      </tr>
-      <tr>
-          <td>countryid:</td>
-          <td>{{ country['countryid'] }}</td>
-      </tr>
-</p>
-<button class="button is-block is-info is-large is-fullish">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item ">
-                         <a class="nav-link" href="/add_country"><span class="badge badge-secondary">add_country</span></a>
-                     </li>
-                  </ul>
-        </div>edit_country</button>
-{% endblock %}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+<h1> Country </h1>
+{% if countries %}
+        {% for c in countries %}
+                <p>{{c.countryid}}</p>
+                <p>{{c.country_name}}</p>
+<hr>
+        {% endfor  %}
+{% else %}
+{% endif %}
+<button class= type="button">
+        <a class="nav-link" href="{{ url_for('add_country') }}">Update country</a>
+</button>
+{% endblock body %}
