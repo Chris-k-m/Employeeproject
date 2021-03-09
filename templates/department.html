@@ -1,25 +1,25 @@
 {% extends 'layout.html' %}
 
-{% block title %}Department{% endblock %}
+{% block title %} {{ department }} {% endblock title %}
 
-{% block content %}
-<h2> Department Page</h2>
-<p>
-  <tr>
-          <td>department_name:</td>
-          <td>{{ department['department_name'] }}</td>
-      </tr>
-      <tr>
-          <td>departmentid:</td>
-          <td>{{ department['departmentid'] }}</td>
-      </tr>
-</p>
- <button class="button is-block is-info is-large is-fullish">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                     <li class="nav-item ">
-                         <a class="nav-link" href="/add_department"><span class="badge badge-secondary">add_department</span></a>
-                     </li>
-                  </ul>
-        </div>edit_departments</button>
-{% endblock %}
+{% block body %}
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="notification is-danger">
+            {{ messages[0] }}
+        </div>
+        {% endif %}
+        {% endwith %}
+<h1> department </h1>
+{% if departments %}
+        {% for d in departments %}
+                <p>{{d.departmentid}}</p>
+                <p>{{d.department_name}}</p>
+<hr>
+        {% endfor  %}
+{% else %}
+{% endif %}
+<button class= type="button">
+        <a class="nav-link" href="{{ url_for('add_department') }}">Update department</a>
+</button>
+{% endblock body %}
