@@ -6,6 +6,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">  <h4 >User Profile</h4></div>
         <div class="panel-body">
+				<div class="msg">{{ msg }}</div>
 
             <div class="box box-info">
 
@@ -16,7 +17,7 @@
                             <input id="profile-image-upload" class="hidden" type="file">
                             <div style="color:#999;" >change profile image
                             </div>
-                                    <h2>Detail Page</h2>
+                                    <h2>Details Page</h2>
                                      <div class="border">
                                         <table class="worddark"></br></br></br></br>
                                             <tr>
@@ -52,25 +53,21 @@
                                                 <td>{{ employee['gender'] }}</td>
                                             </tr>
                                         </table>
-                                         <button class= type="button">
-                                         <input type="submit" value="Register">
+                                         <button type="button" class="btn btn-primary">
+                                            <a class="nav-link" href="{{ url_for('add_details') }}">Update acc</a>
                                          </button>
-
-                                         <button class= type="button">
+                                         <br><br><button type="button" class="btn btn-danger">
                                             <a class="nav-link" href="{{ url_for('delete_user') }}">Delete acc</a>
                                          </button>
                                      </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </div>
+</div>
+
 {% endblock %}
 
 
