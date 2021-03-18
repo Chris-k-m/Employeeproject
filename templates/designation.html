@@ -1,16 +1,11 @@
 {% extends 'layout.html' %}
 
-{% block title %} {{ designation }} {% endblock title %}
+{% block title %} {{ Designation }} {% endblock title %}
 
 {% block body %}
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="notification is-danger">
-            {{ messages[0] }}
-        </div>
-        {% endif %}
-        {% endwith %}
-<h1> designation </h1>
+<h1> Designation </h1>
+
+					<div class="msg">{{ msg }}</div>
 {% if designations %}
         {% for b in designations %}
                 <p>{{b.designationid}}</p>
@@ -20,6 +15,9 @@
 {% else %}
 {% endif %}
 <button class= type="button">
-        <a class="nav-link" href="{{ url_for('add_designation') }}">Update designation</a>
+        <a class="nav-link" href="{{ url_for('edit_designation') }}">Edit designation</a>
+</button>
+<button class= type="button">
+        <a class="nav-link" href="{{ url_for('add_designation') }}">Add designation</a>
 </button>
 {% endblock body %}
