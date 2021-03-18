@@ -3,14 +3,9 @@
 {% block title %} {{ Country }} {% endblock title %}
 
 {% block body %}
-{% with messages = get_flashed_messages() %}
-        {% if messages %}
-        <div class="notification is-danger">
-            {{ messages[0] }}
-        </div>
-        {% endif %}
-        {% endwith %}
 <h1> Country </h1>
+
+					<div class="msg">{{ msg }}</div>
 {% if countries %}
         {% for c in countries %}
                 <p>{{c.countryid}}</p>
@@ -20,6 +15,9 @@
 {% else %}
 {% endif %}
 <button class= type="button">
-        <a class="nav-link" href="{{ url_for('add_country') }}">Update country</a>
+        <a class="nav-link" href="{{ url_for('edit_country') }}">Edit country</a>
+</button>
+<button class= type="button">
+        <a class="nav-link" href="{{ url_for('add_country') }}">Add country</a>
 </button>
 {% endblock body %}
