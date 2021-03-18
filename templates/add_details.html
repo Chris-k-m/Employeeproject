@@ -8,7 +8,7 @@
 				<div class="row">
 					<div>
 							Choose department:
-  							<SELECT name="departmentid" id="departmentid" class="form-control">
+  							<SELECT name="departmentid" class="form-control">
 								{% for d in departments %}
 								<OPTION value={{d.departmentid}}>{{d.department_name}}</OPTION>
 								{% endfor %}
@@ -19,7 +19,7 @@
 				<div class="row">
 					<div>
 							Choose designation:
-  							<SELECT name="designationid" id="designationid" class="form-control">
+  							<SELECT name="designationid" class="form-control">
 								{% for b in designations %}
 								<OPTION value={{b.designationid}}>{{b.designation_name}}</OPTION>
 								{% endfor %}
@@ -29,7 +29,7 @@
 				<br><br><div class="row">
 				<div>
 						Choose country:
-  							<SELECT name="countryid" id="countryid" class="form-control">
+  							<SELECT name="countryid" class="form-control">
 							{% for c in countries %}
 							<OPTION value={{c.countryid}}>{{c.country_name}}</OPTION>
 							{% endfor %}
@@ -37,6 +37,10 @@
 				</div>
 			</div>
 			</div>
-				<button class="button is-block is-info is-medium is-fullish">Save</button>
+						<input type="submit" value="SAVE" class="btn float-right login_btn">
+
 			</form>
+
+
+
 {% endblock content %}
