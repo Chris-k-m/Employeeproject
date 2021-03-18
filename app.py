@@ -180,20 +180,22 @@ def add_details():
         countries = cursor.fetchall()
         cursor.execute('SELECT * FROM designation')
         designations = cursor.fetchall()
-        if request.form == 'POST' and 'departmentid' in request.form.get and 'designationid' in request.form.get and 'countryid' in request.form.get:
-            departmentid = request.form.get['departmentid']
-            designationid = request.form.get['designationid']
-            countryid = request.form.get['countryid']
-            print(countryid, departmentid, designationid)
+        cursor.execute('SELECT * FROM employee WHERE employee_id =%s', (session['employee_id'],))
+        employee = cursor.fetchone()
+        if request.method == 'POST' and "departmentid" in request.form and "designationid" in request.form and "countryid" in request.form:
+            departmentid = request.form['departmentid']
+            designationid = request.form['designationid']
+            countryid = request.form['countryid']
 
             cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor.execute('UPDATE employee set departmentid=%s, designationid=%s, countryid=%s WHERE employee_id=%s',
+            cursor.execute('UPDATE employee SET departmentid=%s, designationid=%s, countryid=%s WHERE employee_id=%s',
                            (departmentid, designationid, countryid, (session['employee_id'],)))
+            mysql.connection.commit()
             return render_template("add_details.html", msg='details saved')
         else:
             msg = 'details not yet saved'
         return render_template("add_details.html", msg=msg, countries=countries, designations=designations,
-                               departments=departments)
+                               departments=departments, employee=employee)
     else:
         msg = 'details not filled'
     return render_template("add_details.html", msg=msg)
