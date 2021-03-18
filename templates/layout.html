@@ -34,9 +34,9 @@
               <a class="navbar-brand" href=""><span class="badge badge- secondary">Online_Ventures</span></a>
               <div class="topnav" id="myTopnav">
                 <ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="/"><span class="sr-only">{{ session.user_name}}</span></a>
-				</li>
+<!--				<li class="nav-item active">-->
+<!--					<a class="nav-link" href="/"><span class="sr-only">{{ session.user_name}}</span></a>-->
+<!--				</li>-->
 
 {%if session.loggedin%}
 				<li class="nav-item ">
@@ -47,24 +47,28 @@
 					<a class="nav-link" href="{{ url_for('details') }}"><i class="fas fa-user"> </i> Profile</a></a>
 				</li>
 
-                <li class="nav-item ">
-					<a class="nav-link" href="{{ url_for('add_details') }}"><i class="fas fa-user"> </i> Update</a>
-				</li>
-
-                <li class="nav-item ">
-					<a class="nav-link" href="{{ url_for('department') }}"><i class="fas fa-user"> </i> Dept</a>
-				</li>
-                     <li class="nav-item ">
-					<a class="nav-link" href="{{ url_for('designation') }}"><i class="fas fa-user"> </i> Designation</a>
-				</li>
-                     <li class="nav-item ">
-					<a class="nav-link" href="{{ url_for('country') }}"><i class="fas fa-user"> </i> Country</a>
-				</li>
-
+<!--                <li class="nav-item ">-->
+<!--					<a class="nav-link" href="{{ url_for('department') }}"><i class="fas fa-user"> </i> Departments</a>-->
+<!--				</li>-->
+<!--                     <li class="nav-item ">-->
+<!--					<a class="nav-link" href="{{ url_for('designation') }}"><i class="fas fa-user"> </i> Designations</a>-->
+<!--				</li>-->
+<!--                     <li class="nav-item ">-->
+<!--					<a class="nav-link" href="{{ url_for('country') }}"><i class="fas fa-user"> </i> Countries</a>-->
+<!--				</li>-->
 
 				<li class="nav-item">
 					<a class="nav-link" href="{{ url_for('logout') }}"><i class="fas fa-user"> </i> Logout</a></a>
 				</li>
+
+                    <div class="dropdown">
+                         <button class="drop-button"> Click Me </button>
+                         <div class="dropdown-content">
+                         <li> <a href="{{ url_for('department') }}">Departments </a></li>
+                         <li> <a href="{{ url_for('country') }}">Countries </a></li>
+                         <li> <a href="{{ url_for('designation') }}">Designations</a></li>
+                         </div>
+                    </div>
 {%else%}
                 <li class="nav-item">
 					<a class="nav-link" href="{{ url_for('register') }}"><i class="fas fa-sign-out-alt"> </i> Sign up</a></a>
