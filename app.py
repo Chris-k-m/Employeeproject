@@ -180,12 +180,15 @@ def add_details():
         countries = cursor.fetchall()
         cursor.execute('SELECT * FROM designation')
         designations = cursor.fetchall()
-        if request.form == 'POST' and 'countryid' in request.form.get and 'departmentid' in request.form.get and 'designationid' in request.form.get:
-            countryid = request.form.get['countryid']
-            departmentid = request.get['departmentid']
+        if request.form == 'POST' and 'departmentid' in request.form.get and 'designationid' in request.form.get and 'countryid' in request.form.get:
+            departmentid = request.form.get['departmentid']
             designationid = request.form.get['designationid']
-            cursor.execute('UPDATE employee set countryid=%s, departmentid=%s, designationid=%s WHERE employee_id=%s',
-                           (countryid, departmentid, designationid, (session['employee_id'],)))
+            countryid = request.form.get['countryid']
+            print(countryid, departmentid, designationid)
+
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor.execute('UPDATE employee set departmentid=%s, designationid=%s, countryid=%s WHERE employee_id=%s',
+                           (departmentid, designationid, countryid, (session['employee_id'],)))
             return render_template("add_details.html", msg='details saved')
         else:
             msg = 'details not yet saved'
