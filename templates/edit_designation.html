@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+                	<h3>edit_designation </h3>
+			</div>
+			<div class="card-body">
+        <form action="{{ url_for('edit_designation') }}" method="post">
+                            <div class="field">
+                                <div class="control">
+            <input type="text" name="designation_name" placeholder="Change Designation Name" class="textbox" id="new_designation_name" required></br></br>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+            <input type="text" name="designationid" placeholder="Change Designation id" class="textbox" id="new_designationid" required></br></br>
+                                </div>
+                            </div>
+            					<div class="msg">{{ msg }}</div>
+
+                            <button class="button is-block is-info is-large is-fullish">Save</button>
+        </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

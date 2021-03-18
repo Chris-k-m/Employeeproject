@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+                	<h3>edit_country </h3>
+			</div>
+			<div class="card-body">
+        <form action="{{ url_for('edit_country') }}" method="post">
+                            <div class="field">
+                                <div class="control">
+            <input type="text" name="country_name" placeholder="Change Country Name" class="textbox" id="new_country_name" required></br></br>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <div class="control">
+            <input type="text" name="countryid" placeholder="Change Country id" class="textbox" id="new_countryid" required></br></br>
+                                </div>
+                            </div>
+            					<div class="msg">{{ msg }}</div>
+
+                            <button class="button is-block is-info is-large is-fullish">Save</button>
+        </form>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
